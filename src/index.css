@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --toastify-color-success: #14b8a6;
+  --toastify-color-error: #ef4444;
+}
+
+body {
+  @apply font-sans bg-dark-300 text-white min-h-screen;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-200;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-600 rounded-full;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Custom utility classes */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-700 text-white;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-600 hover:bg-secondary-700 text-white;
+  }
+  
+  .btn-accent {
+    @apply btn bg-accent-500 hover:bg-accent-600 text-white;
+  }
+  
+  .btn-outline {
+    @apply btn border border-gray-600 hover:border-white bg-transparent;
+  }
+  
+  .glass-card {
+    @apply bg-dark-200/70 backdrop-blur-md border border-gray-800 rounded-xl;
+  }
+  
+  .input {
+    @apply px-4 py-2 rounded-lg bg-dark-100 border border-gray-700 focus:border-primary-500 focus:outline-none transition-colors duration-200 text-white;
+  }
+}
+
+/* Loading animation */
+.loading-dots {
+  display: inline-flex;
+}
+
+.loading-dots span {
+  animation: loadingDots 1.4s infinite ease-in-out both;
+  background-color: currentColor;
+  border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  margin: 0 2px;
+  width: 8px;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loadingDots {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  } 40% { 
+    transform: scale(1.0);
+  }
+}
+
+/* Masonry grid */
+.my-masonry-grid {
+  display: flex;
+  width: auto;
+  gap: 16px;
+}
+
+.my-masonry-grid_column {
+  background-clip: padding-box;
+}
